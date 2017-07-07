@@ -41421,7 +41421,7 @@ if(false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(38)();
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 /***/ }),
 /* 38 */
@@ -41805,12 +41805,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-	data: function data() {
-		return {
-			message: "This is some message text.",
-			user: "John Smith"
-		};
-	}
+	props: ['message']
 });
 
 /***/ }),
@@ -41818,7 +41813,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('p', [_vm._v(_vm._s(_vm.message))]), _vm._v(" "), _c('small', [_vm._v(_vm._s(_vm.user))])])
+  return _c('div', [_c('p', [_vm._v(_vm._s(_vm.message.message))]), _vm._v(" "), _c('small', [_vm._v(_vm._s(_vm.message.user))])])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
@@ -41910,7 +41905,7 @@ if(false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(38)();
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 /***/ }),
 /* 55 */
@@ -41925,9 +41920,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
-/* harmony default export */ __webpack_exports__["default"] = ({});
+/* harmony default export */ __webpack_exports__["default"] = ({
+	data: function data() {
+		return {
+			messages: [{
+				message: "Hey!",
+				user: "John Doe 1"
+			}, {
+				message: "Hi!",
+				user: "John Doe 2"
+			}]
+		};
+	}
+});
 
 /***/ }),
 /* 56 */
@@ -41936,7 +41942,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "chat-log"
-  }, [_c('chat-message'), _vm._v(" "), _c('chat-message'), _vm._v(" "), _c('chat-message')], 1)
+  }, _vm._l((_vm.messages), function(message) {
+    return _c('chat-message', {
+      key: message,
+      attrs: {
+        "message": message
+      }
+    })
+  }))
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {

@@ -1,18 +1,15 @@
 <template lang="html">
 	<div>
-		<p>{{ message }}</p>
-		<small>{{ user }}</small>
+		<p>{{ message.message }}</p>
+		<small>{{ message.user }}</small>
 	</div>
 </template>
 
 <script>
 export default {
-	data() {
-		return {
-			message : "This is some message text.",
-			user : "John Smith"
-		}
-	}
+	props : [
+		'message'
+	]
 }
 </script>
 
