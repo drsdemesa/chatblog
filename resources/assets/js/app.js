@@ -37,8 +37,9 @@ const app = new Vue({
 		]
     },
     methods: {
-    	addMessage() {
+    	addMessage(message) {
     		//add to existing messages
+    		this.messages.push(message);
     		//persist to the database
     		console.log("added message!");
     	}

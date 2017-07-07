@@ -809,8 +809,9 @@ var app = new Vue({
     }]
   },
   methods: {
-    addMessage: function addMessage() {
+    addMessage: function addMessage(message) {
       //add to existing messages
+      this.messages.push(message);
       //persist to the database
       console.log("added message!");
     }
@@ -42060,11 +42061,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 	methods: {
 		sendMessage: function sendMessage() {
-			console.log("message sent! : " + {
+			console.log("message sent! : " + this.messageText);
+			this.$emit("message-sent", {
 				message: this.messageText,
-				author: "Manual Author"
+				user: "Manual Author"
 			});
-			this.$emit("message-sent", this.messageText);
 			this.messageText = '';
 		}
 	}
