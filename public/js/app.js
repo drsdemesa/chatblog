@@ -798,7 +798,12 @@ Vue.component('chat-log', __webpack_require__(52));
 Vue.component('chat-composer', __webpack_require__(57));
 
 var app = new Vue({
-  el: '#app'
+  el: '#app',
+  methods: {
+    addMessage: function addMessage() {
+      console.log("added message!");
+    }
+  }
 });
 
 /***/ }),
@@ -42054,7 +42059,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 	methods: {
 		sendMessage: function sendMessage() {
-			console.log("message sent! : " + this.messageText);
+			console.log("message sent! : " + {
+				message: this.messageText,
+				author: "Manual Author"
+			});
+			this.$emit("message-sent", this.messageText);
 			this.messageText = '';
 		}
 	}

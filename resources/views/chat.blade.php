@@ -11,7 +11,7 @@
 		<!-- <example></example> -->
 		<!-- <chat-message></chat-message> -->
 		<chat-log></chat-log>
-		<chat-composer></chat-composer>
+		<chat-composer v-on:message-sent="addMessage"></chat-composer>
 	</div>
 	
 		<script src="js/app.js" charset="utf-8"></script>
