@@ -42049,6 +42049,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		return {
 			messageText: ''
 		};
+	},
+
+	methods: {
+		sendMessage: function sendMessage() {
+			console.log("message sent! : " + this.messageText);
+		}
 	}
 });
 
@@ -42080,7 +42086,10 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       }
     }
   }), _vm._v(" "), _c('button', {
-    staticClass: "btn btn-primary"
+    staticClass: "btn btn-primary",
+    on: {
+      "click": _vm.sendMessage
+    }
   }, [_vm._v("Send")])])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
