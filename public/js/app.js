@@ -42043,6 +42043,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 	data: function data() {
@@ -42054,6 +42055,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 	methods: {
 		sendMessage: function sendMessage() {
 			console.log("message sent! : " + this.messageText);
+			this.messageText = '';
 		}
 	}
 });
@@ -42080,6 +42082,10 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "value": (_vm.messageText)
     },
     on: {
+      "keydown": function($event) {
+        if (!('button' in $event) && _vm._k($event.keyCode, "enter", 13)) { return null; }
+        _vm.sendMessage($event)
+      },
       "input": function($event) {
         if ($event.target.composing) { return; }
         _vm.messageText = $event.target.value
