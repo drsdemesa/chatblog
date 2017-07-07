@@ -810,6 +810,8 @@ var app = new Vue({
   },
   methods: {
     addMessage: function addMessage() {
+      //add to existing messages
+      //persist to the database
       console.log("added message!");
     }
   }
