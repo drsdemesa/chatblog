@@ -799,6 +799,15 @@ Vue.component('chat-composer', __webpack_require__(57));
 
 var app = new Vue({
   el: '#app',
+  data: {
+    messages: [{
+      message: "Hey!",
+      user: "John Doe 1"
+    }, {
+      message: "Hi!",
+      user: "John Doe 2"
+    }]
+  },
   methods: {
     addMessage: function addMessage() {
       console.log("added message!");
@@ -41910,7 +41919,7 @@ if(false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(38)();
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 /***/ }),
 /* 55 */
@@ -41927,17 +41936,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-	data: function data() {
-		return {
-			messages: [{
-				message: "Hey!",
-				user: "John Doe 1"
-			}, {
-				message: "Hi!",
-				user: "John Doe 2"
-			}]
-		};
-	}
+	props: ['messages']
 });
 
 /***/ }),

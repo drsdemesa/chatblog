@@ -7,20 +7,7 @@
 
 <script>
 export default {
-	data() {
-		return {
-			messages : [
-				{
-					message: "Hey!",
-					user : "John Doe 1"
-				},
-				{
-					message: "Hi!",
-					user : "John Doe 2"
-				}
-			]
-		}
-	}
+	props : ['messages']
 }
 </script>
 
