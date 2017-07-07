@@ -8,9 +8,10 @@
 	<body>
 	<div id="app">
 		<h1>Chat Room</h1>
-		<example></example>
-		<chat-message></chat-message>
+		<!-- <example></example> -->
+		<!-- <chat-message></chat-message> -->
 		<chat-log></chat-log>
+		<chat-composer></chat-composer>
 	</div>
 	
 		<script src="js/app.js" charset="utf-8"></script>
