@@ -41832,7 +41832,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('p', [_vm._v(_vm._s(_vm.message.message))]), _vm._v(" "), _c('small', [_vm._v(_vm._s(_vm.message.user.name))])])
+  return _c('div', {
+    staticClass: "chat-message"
+  }, [_c('p', [_vm._v(_vm._s(_vm.message.message))]), _vm._v(" "), _c('small', [_vm._v(_vm._s(_vm.message.user.name))])])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
@@ -42063,7 +42065,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			this.$emit("message-sent", {
 				message: this.messageText,
 				user: {
-					name: "Manual Author"
+					name: $('.navbar-right .dropdown-toggle').text()
 				}
 			});
 			this.messageText = '';

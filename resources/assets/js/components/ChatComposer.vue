@@ -19,7 +19,7 @@ export default {
 			this.$emit("message-sent", {
 				message : this.messageText,
 				user : {
-					name : "Manual Author"
+					name : $('.navbar-right .dropdown-toggle').text()
 				}
 				});
 			this.messageText = '';

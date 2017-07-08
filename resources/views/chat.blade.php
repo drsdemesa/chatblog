@@ -1,17 +1,21 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title> Chat Room </title>
-		<link rel="stylesheet" type="text/css" href="css/app.css">
-	</head>
-	<body>
-	<div id="chat-app">
-		<h1>Chat Room</h1>
-		<chat-log :messages="messages"></chat-log>
-		<chat-composer v-on:message-sent="addMessage"></chat-composer>
+@extends('layouts.app')
+
+@section('content')
+
+	<div class="container">
+    <div class="row">
+	    <div id="chat-app" class="col-md-8 col-md-offset-2">
+	    	<div class="panel panel-default">
+	    		<div class="panel-heading">Chat Room</div> 
+	    		<div class="panel-body">
+					<chat-log :messages="messages"></chat-log>	
+		        	
+		        </div>
+		        <div class="panel-footer">
+		        	<chat-composer v-on:message-sent="addMessage"></chat-composer>
+		        </div>
+	        </div>
+	    </div>
 	</div>
-	
-		<script src="js/app.js" charset="utf-8"></script>
-	</body>
-</html>
+</div>
+@endsection
