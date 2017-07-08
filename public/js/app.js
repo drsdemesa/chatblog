@@ -1141,6 +1141,7 @@ var app = new Vue({
             //add to existing messages
             this.messages.push(message);
             //persist to the database
+            axios.post('/messages', message);
             console.log("added message!");
         }
     },
@@ -42061,7 +42062,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			console.log("message sent! : " + this.messageText);
 			this.$emit("message-sent", {
 				message: this.messageText,
-				user: "Manual Author"
+				user: {
+					name: "Manual Author"
+				}
 			});
 			this.messageText = '';
 		}

@@ -18,7 +18,9 @@ export default {
 			console.log("message sent! : " + this.messageText);
 			this.$emit("message-sent", {
 				message : this.messageText,
-				user : "Manual Author"
+				user : {
+					name : "Manual Author"
+				}
 				});
 			this.messageText = '';
 		}
