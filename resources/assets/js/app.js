@@ -23,7 +23,7 @@ Vue.component('chat-log', require('./components/ChatLog.vue'));
 Vue.component('chat-composer', require('./components/ChatComposer.vue'));
 
 const app = new Vue({
-    el: '#app',
+    el: '#chat-app',
     data : {
 		messages : [
 			{
@@ -43,5 +43,10 @@ const app = new Vue({
     		//persist to the database
     		console.log("added message!");
     	}
+    },
+    created(){
+        axios.get('/messages').then( response => {
+            console.log(response);
+        });
     }
 });

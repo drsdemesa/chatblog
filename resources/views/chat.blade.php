@@ -6,10 +6,8 @@
 		<link rel="stylesheet" type="text/css" href="css/app.css">
 	</head>
 	<body>
-	<div id="app">
+	<div id="chat-app">
 		<h1>Chat Room</h1>
-		<!-- <example></example> -->
-		<!-- <chat-message></chat-message> -->
 		<chat-log :messages="messages"></chat-log>
 		<chat-composer v-on:message-sent="addMessage"></chat-composer>
 	</div>
