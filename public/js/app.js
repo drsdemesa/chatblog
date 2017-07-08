@@ -1151,6 +1151,13 @@ var app = new Vue({
         axios.get('/messages').then(function (response) {
             _this.messages = response.data;
         });
+
+        Echo.join('chat-room').joining(function (user) {
+            console.log(user.name);
+        }).listen('MessagePosted', function (e) {
+            console.log(e);
+            //handle event
+        });
     }
 });
 
@@ -1213,7 +1220,9 @@ window.Pusher = __webpack_require__(38);
 
 window.Echo = new __WEBPACK_IMPORTED_MODULE_0_laravel_echo___default.a({
   broadcaster: 'pusher',
-  key: 'your-pusher-key'
+  key: '0a60b8951459757b3c99',
+  cluster: 'ap1',
+  encrypted: true
 });
 
 /***/ }),
