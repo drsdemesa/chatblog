@@ -1132,29 +1132,25 @@ Vue.component('chat-log', __webpack_require__(44));
 Vue.component('chat-composer', __webpack_require__(49));
 
 var app = new Vue({
-  el: '#chat-app',
-  data: {
-    messages: [{
-      message: "Hey!",
-      user: "John Doe 1"
-    }, {
-      message: "Hi!",
-      user: "John Doe 2"
-    }]
-  },
-  methods: {
-    addMessage: function addMessage(message) {
-      //add to existing messages
-      this.messages.push(message);
-      //persist to the database
-      console.log("added message!");
+    el: '#chat-app',
+    data: {
+        messages: []
+    },
+    methods: {
+        addMessage: function addMessage(message) {
+            //add to existing messages
+            this.messages.push(message);
+            //persist to the database
+            console.log("added message!");
+        }
+    },
+    created: function created() {
+        var _this = this;
+
+        axios.get('/messages').then(function (response) {
+            _this.messages = response.data;
+        });
     }
-  },
-  created: function created() {
-    axios.get('/messages').then(function (response) {
-      console.log(response);
-    });
-  }
 });
 
 /***/ }),
@@ -41835,7 +41831,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('p', [_vm._v(_vm._s(_vm.message.message))]), _vm._v(" "), _c('small', [_vm._v(_vm._s(_vm.message.user))])])
+  return _c('div', [_c('p', [_vm._v(_vm._s(_vm.message.message))]), _vm._v(" "), _c('small', [_vm._v(_vm._s(_vm.message.user.name))])])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
@@ -41914,7 +41910,7 @@ if(false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(2)();
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n.chat-log .chat-message:nth-child(even){\n\tbackground-color : #ccc;\n}\n.empty {\n\tpadding : 1rem;\n\ttext-align : center;\n}\n", ""]);
 
 /***/ }),
 /* 47 */
@@ -41922,6 +41918,7 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
 //
 //
 //
@@ -41941,14 +41938,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "chat-log"
-  }, _vm._l((_vm.messages), function(message) {
+  }, [_vm._l((_vm.messages), function(message) {
     return _c('chat-message', {
       key: message,
       attrs: {
         "message": message
       }
     })
-  }))
+  }), _vm._v(" "), _c('div', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.messages.length === 0),
+      expression: "messages.length === 0"
+    }],
+    staticClass: "empty"
+  }, [_vm._v("Nothing here yet!")])], 2)
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
