@@ -42,10 +42,11 @@ const app = new Vue({
         });
 
         Echo.join('chat-room')
-            .joining((user) => {
-                console.log(user.name);
-            })
             .listen('MessagePosted', (e) => {
+                this.messages.push({
+                    message : e.message.message,
+                    user : e.user
+                });
                 console.log(e);
                 //handle event
             });

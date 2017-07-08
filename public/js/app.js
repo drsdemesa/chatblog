@@ -1152,9 +1152,11 @@ var app = new Vue({
             _this.messages = response.data;
         });
 
-        Echo.join('chat-room').joining(function (user) {
-            console.log(user.name);
-        }).listen('MessagePosted', function (e) {
+        Echo.join('chat-room').listen('MessagePosted', function (e) {
+            _this.messages.push({
+                message: e.message.message,
+                user: e.user
+            });
             console.log(e);
             //handle event
         });
