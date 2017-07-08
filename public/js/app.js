@@ -1134,7 +1134,8 @@ Vue.component('chat-composer', __webpack_require__(51));
 var app = new Vue({
     el: '#chat-app',
     data: {
-        messages: []
+        messages: [],
+        usersInRoom: []
     },
     methods: {
         addMessage: function addMessage(message) {
@@ -1152,7 +1153,18 @@ var app = new Vue({
             _this.messages = response.data;
         });
 
-        Echo.join('chat-room').listen('MessagePosted', function (e) {
+        Echo.join('chat-room').here(function (users) {
+            _this.usersInRoom = users;
+            console.log(users + " are here");
+        }).joining(function (user) {
+            _this.usersInRoom.push(user);
+            console.log("one user joined : " + user);
+        }).leaving(function (user) {
+            _this.usersInRoom = _this.usersInRoom.filter(function (u) {
+                return u != user;
+            });
+            console.log("one user left : " + user);
+        }).listen('MessagePosted', function (e) {
             _this.messages.push({
                 message: e.message.message,
                 user: e.user
