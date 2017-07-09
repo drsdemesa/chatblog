@@ -22,3 +22,7 @@
 	</div>
 </div>
 @endsection
+
+@section('scripts')
+    <!-- <script src="resources/assets/js/app.js" charset="utf-8"></script> -->
+@endsection
