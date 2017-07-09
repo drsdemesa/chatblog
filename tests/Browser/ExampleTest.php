@@ -9,6 +9,7 @@ use Illuminate\Foundation\Testing\DatabaseMigrations;
 
 class ExampleTest extends DuskTestCase
 {
+    Use DatabaseMigrations;
     /**
      * A basic browser test example.
      *
